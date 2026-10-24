@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+
+/* Le thème suit le réglage clair/sombre du système */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* Palette : bleu nuit, bleu drapeau, rouge réservé au point fort du hero */
+:root {
+  --radius: 0.5rem;
+  --background: #f6f7fb;
+  --foreground: #0e1a3d;
+  --card: #ffffff;
+  --card-foreground: #0e1a3d;
+  --popover: #ffffff;
+  --popover-foreground: #0e1a3d;
+  --primary: #1f3fbf;
+  --primary-foreground: #ffffff;
+  --secondary: #dde2f0;
+  --secondary-foreground: #0e1a3d;
+  --muted: #e9ecf5;
+  --muted-foreground: #4a5578;
+  --accent: #dde2f0;
+  --accent-foreground: #0e1a3d;
+  --destructive: #d21034;
+  --signal: #d21034;
+  --border: #d3d9ea;
+  --input: #d3d9ea;
+  --ring: #1f3fbf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1430;
+    --foreground: #e8ecf8;
+    --card: #111c3f;
+    --card-foreground: #e8ecf8;
+    --popover: #111c3f;
+    --popover-foreground: #e8ecf8;
+    --primary: #7d97ff;
+    --primary-foreground: #0b1430;
+    --secondary: #1b2852;
+    --secondary-foreground: #e8ecf8;
+    --muted: #16224a;
+    --muted-foreground: #a3aed0;
+    --accent: #1b2852;
+    --accent-foreground: #e8ecf8;
+    --destructive: #ff5c78;
+    --signal: #ff5c78;
+    --border: #233262;
+    --input: #233262;
+    --ring: #7d97ff;
+  }
+}
+
+@theme inline {
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-signal: var(--signal);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: light dark;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-balance;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
