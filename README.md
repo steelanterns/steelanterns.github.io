@@ -17,5 +17,5 @@ Tout le texte (bio, projets, compétences, formation, liens) est dans `src/data/
 
 ## Déployer
 
-Chaque push sur `master` construit et publie le site via GitHub Actions (`.github/workflows/deploy.yml`).
+Chaque push sur `main` construit et publie le site via GitHub Actions (`.github/workflows/deploy.yml`).
 Dans les réglages du dépôt : Settings > Pages > Source = **GitHub Actions**.
