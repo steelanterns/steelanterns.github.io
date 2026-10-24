@@ -1,6 +1,6 @@
 # Prochaines étapes
 
-État au 24/10/2026 : refonte en ligne (Vite 8, React 19, TanStack Router, Tailwind CSS 4, shadcn/ui, TypeScript 7, bun), site en français uniquement, publié par GitHub Actions à chaque push sur `main`.
+État au 24/10/2026 : refonte en ligne (Vite 8, React 19, TanStack Router, Tailwind CSS 4, shadcn/ui, TypeScript 7, bun), site en français uniquement, publié par GitHub Actions à chaque push sur `master`.
 
 ## 1. Version bilingue avec Paraglide (prochaine session)
 
