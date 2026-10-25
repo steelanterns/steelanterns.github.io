@@ -1,34 +1,46 @@
 # Prochaines étapes
 
-État au 24/10/2026 : refonte en ligne (Vite 8, React 19, TanStack Router, Tailwind CSS 4, shadcn/ui, TypeScript 7, bun), site en français uniquement, publié par GitHub Actions à chaque push sur `master`.
+État au 25/10/2026 : site bilingue en ligne sur https://steelanterns.github.io (Vite 8, React 19, TanStack Router, Tailwind CSS 4, shadcn/ui, Paraglide JS, TypeScript 7, bun), publié par GitHub Actions à chaque push sur `master`.
 
-## 1. Version bilingue avec Paraglide (fait le 25/10/2026)
+## À faire
 
-Basée sur l'exemple officiel TanStack Router `examples/react/i18n-paraglide` (Paraglide JS 2.29).
+### Contenu (à demander à Steeve)
 
-- Anglais par défaut sans préfixe, français sous `/fr`. Les routes restent en anglais dans les deux langues (`/fr/projects`, `/fr/background`).
-- Anciennes adresses françaises `/projets` et `/parcours` redirigées vers `/fr/projects` et `/fr/background` (`__root.tsx`).
-- Sélecteur EN / FR dans l'en-tête et le menu mobile ; `lang` et meta description mis à jour selon la langue.
-- Projets Ozee Keycloak et AyitiCashHub retirés (seul anonsel peut être montré parmi les projets Ozee ; AyitiCashHub n'est pas terminé et va changer de nom). anonsel pointe vers https://anonsel.com et garde la mention « du groupe Ozee ».
-- Reste possible : balises `hreflang`.
+- [ ] Photo de profil.
+- [ ] CV téléchargeable (PDF), en anglais et en français ?
+- [ ] Capture d'écran d'anonsel pour la page Projets.
+- [ ] Ajouter le projet anciennement appelé AyitiCashHub quand il aura son nouveau nom et sera terminé.
+- [ ] Rust est classé en back-end : à corriger si Steeve l'utilise pour autre chose (outils, système, desktop).
 
-## 2. Contenu
+### Améliorations techniques
 
-- [x] Formation renseignée d'après les documents de l'Université INUKA (mars 2023) : licence en sciences informatiques et formation spéciale en génie logiciel (équivalent Master 1, BAC+5). Les scans des deux documents ne sont pas publiés (date et lieu de naissance, numéro d'enregistrement, signatures).
-- [ ] Éventuellement une photo, un CV téléchargeable et une capture d'écran d'anonsel.
-
-## 3. Améliorations possibles
-
-- [x] Titre de page par route (option `head` + `<HeadContent />` dans `__root.tsx`, doc « Document Head Management »).
+- [ ] Balises `hreflang` (pages anglaises et françaises liées pour Google).
 - [ ] Ne charger que le sous-ensemble latin des polices pour alléger le build.
 - [ ] Compresser l'image du certificat marketing (360 Ko).
-- [x] Image de partage `public/og-image.png` (1200×630) et balises Open Graph en dur dans `index.html` : les robots de LinkedIn, WhatsApp, etc. ne lancent pas le JavaScript, l'aperçu est donc le même (en anglais) pour toutes les pages.
+
+## Fait
+
+### 25/10/2026
+
+- **Version bilingue** basée sur l'exemple officiel TanStack Router `examples/react/i18n-paraglide` (Paraglide JS 2.29) :
+  - anglais par défaut sans préfixe, français sous `/fr` ; routes en anglais dans les deux langues (`/fr/projects`, `/fr/background`) ;
+  - anciennes adresses `/projets` et `/parcours` redirigées vers `/fr/projects` et `/fr/background` (`__root.tsx`) ;
+  - sélecteur EN / FR dans l'en-tête et le menu mobile.
+- **Titre d'onglet par page** : option `head` + `<HeadContent />` dans `__root.tsx` (doc « Document Head Management »).
+- **Image de partage** `public/og-image.png` (1200×630) et balises Open Graph en dur dans `index.html` : les robots de LinkedIn, WhatsApp, etc. ne lancent pas le JavaScript, l'aperçu est donc le même (en anglais) pour toutes les pages.
+- **Projets** : seuls anonsel (lien https://anonsel.com, mention « du groupe Ozee » conservée) et la contribution à oidc-spa. Ozee Keycloak retiré (confidentiel), AyitiCashHub retiré (pas terminé, va changer de nom).
+- **Accueil** : expérience calculée automatiquement depuis mai 2022 (« Plus de 4 ans » / « Près de 5 ans »), poste d'analyste programmeur chez Turbo System S.A. (projets confidentiels, ne rien détailler), projets personnels gardés privés. Compétences : ajout de Rust, LogicalDOC et JasperReports.
+- **Formation** d'après les documents de l'Université INUKA (mars 2023) : licence en sciences informatiques, et formation spéciale en génie logiciel **équivalente au Master 1** (ne pas écrire « Master »). Les scans ne sont pas publiés (date et lieu de naissance, numéro d'enregistrement, signatures).
+- **Ménage** : branche `main` supprimée ; seul `master` est autorisé à publier sur l'environnement `github-pages`.
 
 ## Rappels techniques
 
-- Le site se publie uniquement depuis `master` (branche `main` supprimée le 25/10/2026).
+- Textes traduits : `messages/en.json` et `messages/fr.json` (chaque clé dans les deux fichiers). Données fixes : `src/data/profile.ts`.
+- `src/paraglide/` est généré par Vite : ne pas le modifier ni le committer. `allowJs` est activé dans `tsconfig.app.json` pour ses fichiers JSDoc.
 - Gestionnaire de paquets : bun (pas pnpm ni npm).
 - TypeScript 7 : `baseUrl` n'existe plus, les alias sont dans `paths` ; `types` doit lister explicitement les types globaux.
 - `routeTree.gen.ts` est généré par Vite : le build lance `vite build` avant `tsc -b`.
-- Paraglide génère du JS typé par JSDoc dans `src/paraglide` : `allowJs` est activé dans `tsconfig.app.json`.
+- GitHub Pages sert `404.html` (copie de `index.html`) pour les adresses comme `/fr/projects` : le site s'affiche, mais le code HTTP est 404.
+- Source de l'image de partage : page HTML capturée en 1200×630 avec Chrome headless (polices et couleurs du site).
+- Infos de carrière : profil LinkedIn https://www.linkedin.com/in/steeve-jean-chilles-6a0658186/.
 - Code source du site 2020 récupéré depuis les source maps : `/home/steeve/Documents/me/legacy-src`.
