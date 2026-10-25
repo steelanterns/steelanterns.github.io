@@ -44,8 +44,8 @@
   "background_education": "Formation",
   "background_certifications": "Certifications",
   "background_certificate_alt": "Certificat : {title}",
-  "education_master": "Master",
-  "education_bachelor": "Licence en informatique",
+  "education_master": "Formation spéciale en génie logiciel (équivalent Master 1)",
+  "education_bachelor": "Licence en sciences informatiques",
   "certificate_web_dev": "Développement web",
   "certificate_marketing": "Fondamentaux du marketing numérique",
 

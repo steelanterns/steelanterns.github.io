@@ -10,23 +10,23 @@ Basée sur l'exemple officiel TanStack Router `examples/react/i18n-paraglide` (P
 - Anciennes adresses françaises `/projets` et `/parcours` redirigées vers `/fr/projects` et `/fr/background` (`__root.tsx`).
 - Sélecteur EN / FR dans l'en-tête et le menu mobile ; `lang` et meta description mis à jour selon la langue.
 - Projets Ozee Keycloak et AyitiCashHub retirés (seul anonsel peut être montré parmi les projets Ozee ; AyitiCashHub n'est pas terminé et va changer de nom). anonsel pointe vers https://anonsel.com et garde la mention « du groupe Ozee ».
-- Reste possible : balises `hreflang`, titre de page par route.
+- Reste possible : balises `hreflang`.
 
-## 2. Contenu à compléter (à demander à Steeve)
+## 2. Contenu
 
-- [ ] Formation : intitulé exact, établissement et année du master et de la licence (`education` dans `src/data/profile.ts` ; le master s'affiche pour l'instant sans établissement).
-- [ ] Ajouter des liens publics vers les projets s'il y en a (démo, dépôt).
-- [ ] Éventuellement une photo et un CV téléchargeable.
+- [x] Formation renseignée d'après les documents de l'Université INUKA (mars 2023) : licence en sciences informatiques et formation spéciale en génie logiciel (équivalent Master 1, BAC+5). Les scans des deux documents ne sont pas publiés (date et lieu de naissance, numéro d'enregistrement, signatures).
+- [ ] Éventuellement une photo, un CV téléchargeable et une capture d'écran d'anonsel.
 
 ## 3. Améliorations possibles
 
-- [ ] Titre de page par route (via `head` + `HeadContent` de TanStack Router, à vérifier dans la doc).
+- [x] Titre de page par route (option `head` + `<HeadContent />` dans `__root.tsx`, doc « Document Head Management »).
 - [ ] Ne charger que le sous-ensemble latin des polices pour alléger le build.
 - [ ] Compresser l'image du certificat marketing (360 Ko).
-- [ ] Image Open Graph pour le partage sur les réseaux.
+- [x] Image de partage `public/og-image.png` (1200×630) et balises Open Graph en dur dans `index.html` : les robots de LinkedIn, WhatsApp, etc. ne lancent pas le JavaScript, l'aperçu est donc le même (en anglais) pour toutes les pages.
 
 ## Rappels techniques
 
+- Le site se publie uniquement depuis `master` (branche `main` supprimée le 25/10/2026).
 - Gestionnaire de paquets : bun (pas pnpm ni npm).
 - TypeScript 7 : `baseUrl` n'existe plus, les alias sont dans `paths` ; `types` doit lister explicitement les types globaux.
 - `routeTree.gen.ts` est généré par Vite : le build lance `vite build` avant `tsc -b`.

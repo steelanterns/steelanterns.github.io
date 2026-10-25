@@ -3,10 +3,11 @@ import { MailIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageTitle } from "@/components/page-title"
 import { brandIcons } from "@/components/brand-icons"
-import { profile, socials } from "@/data/profile"
+import { profile, socials, pageTitle } from "@/data/profile"
 import { m } from "@/paraglide/messages"
 
 export const Route = createFileRoute("/contact")({
+  head: () => ({ meta: [{ title: pageTitle(m.nav_contact()) }] }),
   component: Contact,
 })
 

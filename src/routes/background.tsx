@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { Card, CardContent } from "@/components/ui/card"
 import { PageTitle } from "@/components/page-title"
-import { certificates, education } from "@/data/profile"
+import { certificates, education, pageTitle } from "@/data/profile"
 import { m } from "@/paraglide/messages"
 
 export const Route = createFileRoute("/background")({
+  head: () => ({ meta: [{ title: pageTitle(m.nav_background()) }] }),
   component: Background,
 })
 

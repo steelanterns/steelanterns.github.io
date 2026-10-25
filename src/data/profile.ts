@@ -61,16 +61,22 @@ export const skills: { id: string; area: Text; items: (string | Text)[] }[] = [
   { id: "infra", area: m.skills_infra, items: ["Docker", "Terraform", "DigitalOcean", "AWS", "GitHub Actions", "Cloudflare"] },
 ]
 
-// TODO(Steeve) : préciser intitulés exacts, établissements et années (voir docs/prochaines-etapes.md).
+// D'après les documents de l'Université INUKA (mars 2023). Les scans ne sont pas publiés : ils contiennent
+// des données personnelles (date et lieu de naissance, numéro d'enregistrement, signatures).
 export const education = [
-  { id: "master", title: m.education_master, school: "", year: "" },
-  { id: "bachelor", title: m.education_bachelor, school: "Université Inuka", year: "" },
+  { id: "master", title: m.education_master, school: "Université INUKA", year: "2023" },
+  { id: "bachelor", title: m.education_bachelor, school: "Université INUKA", year: "2023" },
 ]
 
 export const certificates = [
   { id: "web-dev", title: m.certificate_web_dev, image: webDev },
   { id: "marketing", title: m.certificate_marketing, image: marketing },
 ]
+
+/** Titre d'onglet d'une page : « Projets · Steeve Jean Chilles ». */
+export function pageTitle(page: string) {
+  return `${page} · ${profile.name}`
+}
 
 /** Affiche un texte fixe ou traduit. */
 export function t(value: string | Text) {

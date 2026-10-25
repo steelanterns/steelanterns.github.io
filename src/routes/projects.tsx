@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router"
 import { ExternalLinkIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { PageTitle } from "@/components/page-title"
-import { projects, t } from "@/data/profile"
+import { projects, t, pageTitle } from "@/data/profile"
 import { m } from "@/paraglide/messages"
 
 export const Route = createFileRoute("/projects")({
+  head: () => ({ meta: [{ title: pageTitle(m.nav_projects()) }] }),
   component: Projects,
 })
 

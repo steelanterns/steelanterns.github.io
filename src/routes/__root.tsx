@@ -1,10 +1,11 @@
-import { Link, Outlet, createRootRoute, redirect } from "@tanstack/react-router"
+import { HeadContent, Link, Outlet, createRootRoute, redirect } from "@tanstack/react-router"
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 import { getLocale, shouldRedirect } from "@/paraglide/runtime"
 import { m } from "@/paraglide/messages"
+import { profile } from "@/data/profile"
 
 // Adresses de l'ancienne version française du site (octobre 2026), à garder pour les liens déjà partagés
 const legacyPaths: Record<string, string> = {
@@ -21,13 +22,19 @@ export const Route = createRootRoute({
     }
 
     document.documentElement.setAttribute("lang", getLocale())
-    document.querySelector('meta[name="description"]')?.setAttribute("content", m.meta_description())
 
     const decision = await shouldRedirect({ url: window.location.href })
     if (decision.redirectUrl) {
       throw redirect({ href: decision.redirectUrl.href })
     }
   },
+  // Valeurs par défaut ; chaque page remplace le titre (doc TanStack Router, "Document Head Management")
+  head: () => ({
+    meta: [
+      { title: `${profile.name} · ${m.profile_role()}` },
+      { name: "description", content: m.meta_description() },
+    ],
+  }),
   component: RootLayout,
   notFoundComponent: NotFound,
 })
@@ -35,6 +42,7 @@ export const Route = createRootRoute({
 function RootLayout() {
   return (
     <div className="flex min-h-svh flex-col">
+      <HeadContent />
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
