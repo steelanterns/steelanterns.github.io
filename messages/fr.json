@@ -16,8 +16,10 @@
 
   "profile_role": "Développeur full-stack",
   "profile_location": "Port-au-Prince, Haïti",
-  "profile_intro": "Je conçois des applications web de bout en bout : l'interface en React, l'API en Spring Boot, l'authentification avec Keycloak et l'infrastructure qui fait tourner le tout.",
-  "profile_now": "En ce moment, je construis anonsel, une plateforme de petites annonces.",
+  "profile_intro": "{experience} à concevoir des applications web de bout en bout : interfaces en React, back-end en Spring Boot et en Rust, authentification avec Keycloak, gestion documentaire avec LogicalDOC, rapports avec JasperReports, et l'infrastructure qui fait tourner le tout.",
+  "experience_over": "Plus de {years} ans",
+  "experience_nearly": "Près de {years} ans",
+  "profile_now": "Je suis analyste programmeur chez Turbo System S.A. depuis 2022, sur des projets d'entreprise confidentiels. À côté, je construis anonsel et d'autres projets personnels que je dévoilerai quand ils seront prêts.",
 
   "home_cta_projects": "Voir mes projets",
   "home_cta_contact": "Me contacter",
@@ -26,6 +28,7 @@
   "skills_backend": "Backend",
   "skills_auth": "Authentification",
   "skills_infra": "Infrastructure",
+  "skills_documents": "Documents et rapports",
   "skills_tanstack": "TanStack Start et Router",
   "skills_rest": "API REST",
 

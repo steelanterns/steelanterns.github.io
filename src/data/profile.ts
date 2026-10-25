@@ -7,12 +7,23 @@ import marketing from "@/assets/certificats/marketing-numerique.png"
 
 type Text = () => string
 
+// Début de carrière : analyste programmeur chez Turbo System S.A. (voir LinkedIn)
+const careerStart = new Date(2022, 4) // mai 2022
+
+/** « Plus de 4 ans » ou « Près de 5 ans », recalculé à chaque visite. */
+function experience() {
+  const now = new Date()
+  const months = (now.getFullYear() - careerStart.getFullYear()) * 12 + now.getMonth() - careerStart.getMonth()
+  const years = Math.floor(months / 12)
+  return months % 12 >= 6 ? m.experience_nearly({ years: years + 1 }) : m.experience_over({ years })
+}
+
 export const profile = {
   name: "Steeve Jean Chilles",
   fullName: "Steeve Ralph M. Jean Chilles",
   role: m.profile_role,
   location: m.profile_location,
-  intro: m.profile_intro,
+  intro: () => m.profile_intro({ experience: experience() }),
   now: m.profile_now,
   email: "steevejeanchilles@gmail.com",
 }
@@ -56,8 +67,9 @@ export const projects: Project[] = [
 
 export const skills: { id: string; area: Text; items: (string | Text)[] }[] = [
   { id: "frontend", area: m.skills_frontend, items: ["React", "TypeScript", m.skills_tanstack, "Tailwind CSS", "shadcn/ui"] },
-  { id: "backend", area: m.skills_backend, items: ["Spring Boot", "Java", "PostgreSQL", m.skills_rest] },
+  { id: "backend", area: m.skills_backend, items: ["Spring Boot", "Java", "Rust", "PostgreSQL", m.skills_rest] },
   { id: "auth", area: m.skills_auth, items: ["Keycloak", "OpenID Connect", "SSO"] },
+  { id: "documents", area: m.skills_documents, items: ["LogicalDOC", "JasperReports"] },
   { id: "infra", area: m.skills_infra, items: ["Docker", "Terraform", "DigitalOcean", "AWS", "GitHub Actions", "Cloudflare"] },
 ]
 
