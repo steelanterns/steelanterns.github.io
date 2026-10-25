@@ -6,6 +6,8 @@
     "module": "esnext",
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
+    /* Paraglide génère du JavaScript typé par JSDoc dans src/paraglide */
+    "allowJs": true,
     "skipLibCheck": true,
 
     /* Bundler mode */

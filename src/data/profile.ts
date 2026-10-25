@@ -1,15 +1,19 @@
-// Tout le contenu du site est ici : modifier ce fichier suffit pour mettre le portfolio à jour.
+// Données du site. Les textes traduits sont dans messages/en.json et messages/fr.json,
+// ici on ne garde que ce qui ne se traduit pas (noms, liens, technologies).
+// Les textes sont des fonctions m.xxx() : elles renvoient la langue courante au moment du rendu.
+import { m } from "@/paraglide/messages"
 import webDev from "@/assets/certificats/web-dev.png"
 import marketing from "@/assets/certificats/marketing-numerique.png"
+
+type Text = () => string
 
 export const profile = {
   name: "Steeve Jean Chilles",
   fullName: "Steeve Ralph M. Jean Chilles",
-  role: "Développeur full-stack",
-  location: "Port-au-Prince, Haïti",
-  intro:
-    "Je conçois des applications web de bout en bout : l'interface en React, l'API en Spring Boot, l'authentification avec Keycloak et l'infrastructure qui fait tourner le tout.",
-  now: "En ce moment, je construis anonsel, une plateforme de petites annonces, et AyitiCashHub, un outil de gestion pour les vendeurs MonCash et NatCash.",
+  role: m.profile_role,
+  location: m.profile_location,
+  intro: m.profile_intro,
+  now: m.profile_now,
   email: "steevejeanchilles@gmail.com",
 }
 
@@ -23,60 +27,52 @@ export const socials = [
 ] as const
 
 export type Project = {
-  name: string
-  summary: string
-  role: string
+  id: string
+  name: string | Text
+  summary: Text
+  role: Text
   stack: string[]
   href?: string
 }
 
 export const projects: Project[] = [
   {
+    id: "anonsel",
     name: "anonsel",
-    summary:
-      "Plateforme de petites annonces du groupe Ozee : dépôt d'annonces, modération, gestion des utilisateurs et des sanctions.",
-    role: "Frontend, authentification et déploiement",
+    summary: m.project_anonsel_summary,
+    role: m.project_anonsel_role,
     stack: ["TanStack Start", "Spring Boot", "Keycloak", "Terraform", "DigitalOcean"],
+    href: "https://anonsel.com",
   },
   {
-    name: "AyitiCashHub",
-    summary:
-      "Application pour les vendeurs MonCash et NatCash en Haïti : ventes, dépôts, retraits et historique des transactions, pensée d'abord pour le mobile.",
-    role: "Conception et développement",
-    stack: ["TanStack Start", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query"],
-    href: "https://github.com/steelanterns/ach-ui",
-  },
-  {
-    name: "Ozee Keycloak",
-    summary:
-      "Serveur d'authentification unique partagé entre les applications du groupe Ozee, avec thème personnalisé et realm versionné en configuration-as-code.",
-    role: "Mise en place et maintenance",
-    stack: ["Keycloak", "Docker", "GitHub Actions", "keycloak-config-cli"],
-  },
-  {
-    name: "Contribution à oidc-spa",
-    summary:
-      "Correctif dans le plugin Vite de cette bibliothèque open source d'authentification OpenID Connect pour applications web.",
-    role: "Contributeur open source",
+    id: "oidc-spa",
+    name: m.project_oidc_name,
+    summary: m.project_oidc_summary,
+    role: m.project_oidc_role,
     stack: ["TypeScript", "Vite", "OIDC"],
     href: "https://github.com/keycloakify/oidc-spa",
   },
 ]
 
-export const skills = [
-  { area: "Frontend", items: ["React", "TypeScript", "TanStack Start et Router", "Tailwind CSS", "shadcn/ui"] },
-  { area: "Backend", items: ["Spring Boot", "Java", "PostgreSQL", "API REST"] },
-  { area: "Authentification", items: ["Keycloak", "OpenID Connect", "SSO"] },
-  { area: "Infrastructure", items: ["Docker", "Terraform", "DigitalOcean", "AWS", "GitHub Actions", "Cloudflare"] },
+export const skills: { id: string; area: Text; items: (string | Text)[] }[] = [
+  { id: "frontend", area: m.skills_frontend, items: ["React", "TypeScript", m.skills_tanstack, "Tailwind CSS", "shadcn/ui"] },
+  { id: "backend", area: m.skills_backend, items: ["Spring Boot", "Java", "PostgreSQL", m.skills_rest] },
+  { id: "auth", area: m.skills_auth, items: ["Keycloak", "OpenID Connect", "SSO"] },
+  { id: "infra", area: m.skills_infra, items: ["Docker", "Terraform", "DigitalOcean", "AWS", "GitHub Actions", "Cloudflare"] },
 ]
 
 // TODO(Steeve) : préciser intitulés exacts, établissements et années (voir docs/prochaines-etapes.md).
 export const education = [
-  { title: "Master", school: "", year: "" },
-  { title: "Licence en informatique", school: "Université Inuka", year: "" },
+  { id: "master", title: m.education_master, school: "", year: "" },
+  { id: "bachelor", title: m.education_bachelor, school: "Université Inuka", year: "" },
 ]
 
 export const certificates = [
-  { title: "Développement web", image: webDev },
-  { title: "Fondamentaux du marketing numérique", image: marketing },
+  { id: "web-dev", title: m.certificate_web_dev, image: webDev },
+  { id: "marketing", title: m.certificate_marketing, image: marketing },
 ]
+
+/** Affiche un texte fixe ou traduit. */
+export function t(value: string | Text) {
+  return typeof value === "function" ? value() : value
+}

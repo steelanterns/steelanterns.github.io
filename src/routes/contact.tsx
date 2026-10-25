@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { PageTitle } from "@/components/page-title"
 import { brandIcons } from "@/components/brand-icons"
 import { profile, socials } from "@/data/profile"
+import { m } from "@/paraglide/messages"
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -12,9 +13,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <>
-      <PageTitle title="Contact">
-        Un projet d'application, une mission ou une question ? Écrivez-moi, je réponds par e-mail.
-      </PageTitle>
+      <PageTitle title={m.contact_title()}>{m.contact_intro()}</PageTitle>
 
       <Button asChild size="lg">
         <a href={`mailto:${profile.email}`}>

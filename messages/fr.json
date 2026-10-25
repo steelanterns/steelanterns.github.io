@@ -1,0 +1,58 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "meta_description": "Steeve Jean Chilles, développeur full-stack à Port-au-Prince.",
+
+  "skip_to_content": "Aller au contenu",
+  "nav_home": "Accueil",
+  "nav_projects": "Projets",
+  "nav_background": "Parcours",
+  "nav_contact": "Contact",
+  "nav_main_label": "Navigation principale",
+  "nav_mobile_label": "Navigation mobile",
+  "menu_open": "Ouvrir le menu",
+  "menu_title": "Menu",
+  "language_label": "Langue",
+  "language_switch": "Read in English",
+
+  "profile_role": "Développeur full-stack",
+  "profile_location": "Port-au-Prince, Haïti",
+  "profile_intro": "Je conçois des applications web de bout en bout : l'interface en React, l'API en Spring Boot, l'authentification avec Keycloak et l'infrastructure qui fait tourner le tout.",
+  "profile_now": "En ce moment, je construis anonsel, une plateforme de petites annonces.",
+
+  "home_cta_projects": "Voir mes projets",
+  "home_cta_contact": "Me contacter",
+  "home_skills_title": "Ce que je sais faire",
+  "skills_frontend": "Frontend",
+  "skills_backend": "Backend",
+  "skills_auth": "Authentification",
+  "skills_infra": "Infrastructure",
+  "skills_tanstack": "TanStack Start et Router",
+  "skills_rest": "API REST",
+
+  "projects_title": "Projets",
+  "projects_intro": "Des applications en production, de l'interface jusqu'à l'infrastructure.",
+  "projects_external_link": "(lien externe)",
+  "projects_stack_label": "Technologies",
+  "project_anonsel_summary": "Plateforme de petites annonces du groupe Ozee : dépôt d'annonces, modération, gestion des utilisateurs et des sanctions.",
+  "project_anonsel_role": "Frontend, authentification et déploiement",
+  "project_oidc_name": "Contribution à oidc-spa",
+  "project_oidc_summary": "Correctif dans le plugin Vite de cette bibliothèque open source d'authentification OpenID Connect pour applications web.",
+  "project_oidc_role": "Contributeur open source",
+
+  "background_title": "Parcours",
+  "background_intro": "Formation et certifications.",
+  "background_education": "Formation",
+  "background_certifications": "Certifications",
+  "background_certificate_alt": "Certificat : {title}",
+  "education_master": "Master",
+  "education_bachelor": "Licence en informatique",
+  "certificate_web_dev": "Développement web",
+  "certificate_marketing": "Fondamentaux du marketing numérique",
+
+  "contact_title": "Contact",
+  "contact_intro": "Un projet d'application, une mission ou une question ? Écrivez-moi, je réponds par e-mail.",
+
+  "not_found_title": "Cette page n'existe pas",
+  "not_found_text": "L'adresse est peut-être mal écrite, ou la page a été déplacée lors de la refonte du site.",
+  "not_found_back": "Retour à l'accueil"
+}

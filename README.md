@@ -2,7 +2,9 @@
 
 Portfolio de Steeve Jean Chilles.
 
-Stack : Vite 8, React 19, TanStack Router (routes par fichiers), Tailwind CSS 4, shadcn/ui, TypeScript 7, bun.
+Stack : Vite 8, React 19, TanStack Router (routes par fichiers), Tailwind CSS 4, shadcn/ui, Paraglide JS (i18n), TypeScript 7, bun.
+
+Langues : anglais par défaut (`/projects`), français sous `/fr` (`/fr/projects`). Les routes sont en anglais dans les deux langues.
 
 ## Développer
 
@@ -13,7 +15,9 @@ bun run dev
 
 ## Mettre le contenu à jour
 
-Tout le texte (bio, projets, compétences, formation, liens) est dans `src/data/profile.ts`.
+- Textes traduits (interface, bio, projets, compétences, formation) : `messages/en.json` et `messages/fr.json`. Chaque clé doit exister dans les deux fichiers.
+- Données fixes (nom, liens, technologies, ordre des projets) : `src/data/profile.ts`.
+- `src/paraglide/` est généré par Vite à partir des fichiers de messages : ne pas le modifier ni le committer.
 
 ## Déployer
 

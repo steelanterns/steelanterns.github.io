@@ -1,0 +1,58 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "meta_description": "Steeve Jean Chilles, full-stack developer in Port-au-Prince.",
+
+  "skip_to_content": "Skip to content",
+  "nav_home": "Home",
+  "nav_projects": "Projects",
+  "nav_background": "Background",
+  "nav_contact": "Contact",
+  "nav_main_label": "Main navigation",
+  "nav_mobile_label": "Mobile navigation",
+  "menu_open": "Open menu",
+  "menu_title": "Menu",
+  "language_label": "Language",
+  "language_switch": "Lire en français",
+
+  "profile_role": "Full-stack developer",
+  "profile_location": "Port-au-Prince, Haiti",
+  "profile_intro": "I build web applications end to end: the interface in React, the API in Spring Boot, authentication with Keycloak and the infrastructure that runs it all.",
+  "profile_now": "Right now I'm building anonsel, a classified ads platform.",
+
+  "home_cta_projects": "See my projects",
+  "home_cta_contact": "Get in touch",
+  "home_skills_title": "What I do",
+  "skills_frontend": "Frontend",
+  "skills_backend": "Backend",
+  "skills_auth": "Authentication",
+  "skills_infra": "Infrastructure",
+  "skills_tanstack": "TanStack Start and Router",
+  "skills_rest": "REST APIs",
+
+  "projects_title": "Projects",
+  "projects_intro": "Applications in production, from the interface down to the infrastructure.",
+  "projects_external_link": "(external link)",
+  "projects_stack_label": "Technologies",
+  "project_anonsel_summary": "Classified ads platform from the Ozee group: posting ads, moderation, user management and sanctions.",
+  "project_anonsel_role": "Frontend, authentication and deployment",
+  "project_oidc_name": "Contribution to oidc-spa",
+  "project_oidc_summary": "A fix in the Vite plugin of this open source OpenID Connect authentication library for web apps.",
+  "project_oidc_role": "Open source contributor",
+
+  "background_title": "Background",
+  "background_intro": "Education and certifications.",
+  "background_education": "Education",
+  "background_certifications": "Certifications",
+  "background_certificate_alt": "Certificate: {title}",
+  "education_master": "Master's degree",
+  "education_bachelor": "Bachelor's degree in computer science",
+  "certificate_web_dev": "Web development",
+  "certificate_marketing": "Fundamentals of digital marketing",
+
+  "contact_title": "Contact",
+  "contact_intro": "An app idea, a contract or a question? Write to me, I reply by email.",
+
+  "not_found_title": "This page doesn't exist",
+  "not_found_text": "The address may be misspelled, or the page may have moved when the site was redesigned.",
+  "not_found_back": "Back to home"
+}

@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { profile, skills } from "@/data/profile"
+import { profile, skills, t } from "@/data/profile"
+import { m } from "@/paraglide/messages"
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -14,7 +15,7 @@ function Home() {
     <>
       <section aria-labelledby="hero" className="pb-20">
         <p className="text-muted-foreground">
-          {profile.role}, {profile.location}
+          {profile.role()}, {profile.location()}
         </p>
         <h1
           id="hero"
@@ -24,33 +25,33 @@ function Home() {
           <br />
           {rest.join(" ")}
         </h1>
-        <p className="mt-10 max-w-2xl text-xl leading-relaxed">{profile.intro}</p>
+        <p className="mt-10 max-w-2xl text-xl leading-relaxed">{profile.intro()}</p>
 
         <div className="mt-10 max-w-2xl border-l-4 border-signal py-1 pl-5">
-          <p className="text-lg">{profile.now}</p>
+          <p className="text-lg">{profile.now()}</p>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
           <Button asChild size="lg">
-            <Link to="/projets">Voir mes projets</Link>
+            <Link to="/projects">{m.home_cta_projects()}</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link to="/contact">Me contacter</Link>
+            <Link to="/contact">{m.home_cta_contact()}</Link>
           </Button>
         </div>
       </section>
 
       <Separator />
 
-      <section aria-labelledby="competences" className="pt-20">
-        <h2 id="competences" className="text-3xl font-semibold">
-          Ce que je sais faire
+      <section aria-labelledby="skills" className="pt-20">
+        <h2 id="skills" className="text-3xl font-semibold">
+          {m.home_skills_title()}
         </h2>
         <dl className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
           {skills.map((group) => (
-            <div key={group.area}>
-              <dt className="font-display text-lg font-semibold">{group.area}</dt>
-              <dd className="mt-2 text-muted-foreground">{group.items.join(", ")}</dd>
+            <div key={group.id}>
+              <dt className="font-display text-lg font-semibold">{group.area()}</dt>
+              <dd className="mt-2 text-muted-foreground">{group.items.map(t).join(", ")}</dd>
             </div>
           ))}
         </dl>

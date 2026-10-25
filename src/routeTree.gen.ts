@@ -10,13 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BackgroundRouteImport } from './routes/background'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ParcoursRouteImport } from './routes/parcours'
-import { Route as ProjetsRouteImport } from './routes/projets'
+import { Route as ProjectsRouteImport } from './routes/projects'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BackgroundRoute = BackgroundRouteImport.update({
+  id: '/background',
+  path: '/background',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -24,49 +29,44 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ParcoursRoute = ParcoursRouteImport.update({
-  id: '/parcours',
-  path: '/parcours',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjetsRoute = ProjetsRouteImport.update({
-  id: '/projets',
-  path: '/projets',
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/background': typeof BackgroundRoute
   '/contact': typeof ContactRoute
-  '/parcours': typeof ParcoursRoute
-  '/projets': typeof ProjetsRoute
+  '/projects': typeof ProjectsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/background': typeof BackgroundRoute
   '/contact': typeof ContactRoute
-  '/parcours': typeof ParcoursRoute
-  '/projets': typeof ProjetsRoute
+  '/projects': typeof ProjectsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/background': typeof BackgroundRoute
   '/contact': typeof ContactRoute
-  '/parcours': typeof ParcoursRoute
-  '/projets': typeof ProjetsRoute
+  '/projects': typeof ProjectsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/parcours' | '/projets'
+  fullPaths: '/' | '/background' | '/contact' | '/projects'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/parcours' | '/projets'
-  id: '__root__' | '/' | '/contact' | '/parcours' | '/projets'
+  to: '/' | '/background' | '/contact' | '/projects'
+  id: '__root__' | '/' | '/background' | '/contact' | '/projects'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BackgroundRoute: typeof BackgroundRoute
   ContactRoute: typeof ContactRoute
-  ParcoursRoute: typeof ParcoursRoute
-  ProjetsRoute: typeof ProjetsRoute
+  ProjectsRoute: typeof ProjectsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/background': {
+      id: '/background'
+      path: '/background'
+      fullPath: '/background'
+      preLoaderRoute: typeof BackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -85,18 +92,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/parcours': {
-      id: '/parcours'
-      path: '/parcours'
-      fullPath: '/parcours'
-      preLoaderRoute: typeof ParcoursRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projets': {
-      id: '/projets'
-      path: '/projets'
-      fullPath: '/projets'
-      preLoaderRoute: typeof ProjetsRouteImport
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -104,9 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BackgroundRoute: BackgroundRoute,
   ContactRoute: ContactRoute,
-  ParcoursRoute: ParcoursRoute,
-  ProjetsRoute: ProjetsRoute,
+  ProjectsRoute: ProjectsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
